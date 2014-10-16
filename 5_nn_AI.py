@@ -6,18 +6,20 @@ from player_def import *
 from basic_def import *
 from exception_def import GameException
 
+nn_obj_dir = "/nn_obj/"
+
 class NN_AI(Player):
     # hand = [Plains, Mountain, Islands, Forest, Swamp]
 
     def __init__(self, name):
         super(NN_AI, self).__init__(name)
         self.states = list()
-        self.record_path = name + "_record.obj"
-        self.play_nn_path = name + "_play_nn.obj"
-        self.regrowth_nn_path = name + "_regrowth_nn.obj"
-        self.ravened_nn_path = name + "_ravened_nn.obj"
-        self.sinkhole_nn_path = name + "_sinkhole_nn.obj"
-        self.daze_nn_path = name + "_daze_nn.obj"
+        self.record_path = nn_obj_dir + name + "/record.obj"
+        self.play_nn_path = nn_obj_dir + name + "/play_nn.obj"
+        self.regrowth_nn_path = nn_obj_dir + name + "/regrowth_nn.obj"
+        self.ravened_nn_path = nn_obj_dir + name + "/ravened_nn.obj"
+        self.sinkhole_nn_path = nn_obj_dir + name + "/sinkhole_nn.obj"
+        self.daze_nn_path = nn_obj_dir + name + "/daze_nn.obj"
         # record[0] = list of inputs, record[1] = list of ouputs
         self.record = self.initialize_record(self.record_path)
         self.play_nn = self.initialize_nn(self.play_nn_path, 6)
